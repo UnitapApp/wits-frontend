@@ -35,14 +35,14 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const initialState = cookieToInitialState(config, headers().get("cookie"))
+  // const initialState = cookieToInitialState(config, headers().get("cookie"))
 
   return (
     <html lang="en" dir="ltr" className="dark">
       <body
         className={`dark:bg-gray10 min-h-screen dark:text-white ${notoSansFont}`}
       >
-        <Providers initialState={initialState}>
+        <Providers>
           <WitsProvider>
             <StyledJsxRegistry>
               <EventContextProvider>

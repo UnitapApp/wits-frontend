@@ -10,6 +10,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@capacitor/android": "^6.1.2",
+    "@capacitor/core": "^6.1.2",
     "@ethersproject/providers": "^5.7.2",
     "@metamask/logo": "^3.1.2",
     "@nextui-org/react": "^2.4.6",
@@ -43,6 +45,7 @@
     "wagmi": "^2.5.7"
   },
   "devDependencies": {
+    "@capacitor/cli": "^6.1.2",
     "@ethersproject/experimental": "^5.7.0",
     "@types/big.js": "^6.2.2",
     "@types/bn.js": "^5.1.5",

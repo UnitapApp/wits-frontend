@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">wits</string>
+    <string name="title_activity_main">wits</string>
+    <string name="package_name">unitap.wits.app</string>
+    <string name="custom_url_scheme">unitap.wits.app</string>
+</resources>

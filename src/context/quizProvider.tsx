@@ -106,9 +106,10 @@ const setDocTitle = (title?: string) => {
   if (docTitle !== document.title) document.title = docTitle
 }
 
-const QuizContextProvider: FC<
-  PropsWithChildren & { quiz: Competition; userEnrollmentPk: number }
-> = ({ children, quiz, userEnrollmentPk }) => {
+const QuizContextProvider: FC<PropsWithChildren & { quiz: Competition }> = ({
+  children,
+  quiz,
+}) => {
   const [health, setHealth] = useState(1)
   const [hint, setHint] = useState(1)
   const [remainingPeople, setRemainingPeople] = useState(1)
@@ -203,6 +204,17 @@ const QuizContextProvider: FC<
   useEffect(() => {
     cachedAudios.current.beforeStart = new Audio("/assets/sounds/new 3-2-1.wav")
     cachedAudios.current.quizStart = new Audio("/assets/sounds/time up.mp3")
+    cachedAudios.current.rightAnswer = new Audio(
+      "/assets/sounds/right answer.mp3"
+    )
+
+    cachedAudios.current.prizeClaimed = new Audio(
+      "/assets/sounds/prize claimed.mp3"
+    )
+    cachedAudios.current.waitResults = new Audio(
+      "/assets/sounds/see results.mp3"
+    )
+
     cachedAudios.current.beforeQuestion = new Audio(
       "/assets/sounds/timer count down.wav"
     )
@@ -405,7 +417,6 @@ const QuizContextProvider: FC<
     question?.number,
     stateIndex,
     userAnswersHistory,
-    userEnrollmentPk,
   ])
 
   const fetchFinalResults = useCallback(async () => {

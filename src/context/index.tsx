@@ -7,32 +7,10 @@ import WalletProvider from "./walletProvider"
 import { cookies } from "next/headers"
 
 export const WitsProvider: FC<PropsWithChildren> = async ({ children }) => {
-  let authProfile: UserProfile | null = null
-
-  const cookieStorage = cookies()
-
-  try {
-    if (cookieStorage.has("userToken"))
-      authProfile = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/auth/info/`,
-        {
-          headers: {
-            Authorization: `Token ${cookieStorage.get("userToken")?.value}`,
-          },
-          cache: "no-store",
-        }
-      )
-        .then((res) => {
-          if (!res.ok) throw new Error("Unauthorized")
-
-          return res
-        })
-        .then((res) => res.json())
-  } catch {}
   return (
     <ErrorsProvider>
       <GlobalContextProvider>
-        <UserContextProvider initial={authProfile}>
+        <UserContextProvider>
           <WalletProvider>{children}</WalletProvider>
         </UserContextProvider>
       </GlobalContextProvider>

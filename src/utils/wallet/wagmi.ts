@@ -22,10 +22,10 @@ for (const chain of supportedChains) {
 }
 
 export const config = createConfig({
-  ssr: true,
-  storage: createStorage({
-    storage: cookieStorage,
-  }),
+  // ssr: true,
+  // storage: createStorage({
+  //   storage: cookieStorage,
+  // }),
   chains: supportedChains as any,
   connectors: getConnectorProviders(),
   transports,

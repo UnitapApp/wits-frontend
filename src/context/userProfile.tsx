@@ -57,10 +57,8 @@ export const UserProfileContext = createContext<
   updateProfile: NullCallback,
 })
 
-export const UserContextProvider: FC<
-  PropsWithChildren & { initial: UserProfile | null }
-> = ({ children, initial }) => {
-  const [userProfile, setUserProfile] = useState<UserProfile | null>(initial)
+export const UserContextProvider: FC<PropsWithChildren> = ({ children }) => {
+  const [userProfile, setUserProfile] = useState<UserProfile | null>(null)
   const [loading, setLoading] = useState(false)
   const [userToken, setToken] = useLocalStorageState("userToken")
   const [holdUserLogout, setHoldUserLogout] = useState(false)
